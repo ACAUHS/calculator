@@ -39,3 +39,24 @@ function divide(a, b) {
     const quotient = a / b;
     return quotient;
 }
+/**
+ *
+ * @param a First number
+ * @param operator Operator being used
+ * @param b Second number
+ * @returns Takes the operator being used, and calls the appropriate function.
+ */
+function operate(a, operator, b) {
+    if (operator == "+") {
+        return addition(a, b);
+    }
+    else if (operator == "-") {
+        return subtract(a, b);
+    }
+    else if (operator == "*") {
+        return multiply(a, b);
+    }
+    else {
+        return divide(a, b);
+    }
+}
