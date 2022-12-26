@@ -1,3 +1,5 @@
+//calculator logic code
+
 /**
  * 
  * @param a first number
@@ -63,3 +65,23 @@ function operate(a:number, operator: any, b:number) {
         return divide(a, b)
     }
 }
+
+//DOM FUNCTIONS BELOW
+
+//function that replaces the button clicked to the display
+
+function setDisplay(e: any) {
+
+    //gets the display element
+    const display = document.getElementById('calculator').children[0]
+
+    //const makes new text node
+    const newDisplay = document.createTextNode('hello')
+
+    display?.replaceChild(newDisplay, display.childNodes[0])
+    console.log(display)
+}
+
+//dom thing that runs through all the buttons
+
+const numberButton = document.querySelectorAll('')
