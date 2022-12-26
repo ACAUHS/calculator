@@ -63,13 +63,19 @@ function operate(a, operator, b) {
 }
 //DOM FUNCTIONS BELOW
 //function that replaces the button clicked to the display
+/**
+ *
+ * @param e whichever button is pressed
+ */
 function setDisplay(e) {
+    const value = document.querySelector(`button[]`);
     //gets the display element
     const display = document.getElementById('calculator').children[0];
     //const makes new text node
     const newDisplay = document.createTextNode('hello');
     display === null || display === void 0 ? void 0 : display.replaceChild(newDisplay, display.childNodes[0]);
-    console.log(display);
+    console.log('1');
 }
 //dom thing that runs through all the buttons
-const numberButton = document.querySelectorAll('');
+const numberButton = document.querySelectorAll('.button');
+numberButton.forEach(button => button.addEventListener('click', setDisplay));
