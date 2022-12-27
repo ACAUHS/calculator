@@ -76,9 +76,7 @@ function setDisplay(e: any) {
 
 
     //gets the display element
-    const display = document.getElementById('calculator').children[0]
-
-    console.log(display);
+    const display = document.getElementById('calculator')!.children[0]
 
     //const makes new text node
     const newDisplay = document.createTextNode(e.srcElement.value);
@@ -86,7 +84,7 @@ function setDisplay(e: any) {
     display?.replaceChild(newDisplay, display.childNodes[0])
 }
 
-//dom thing that runs through all the buttons
+//dom thing that runs through all the buttons and displays it on the display
 
 const numberButton = document.querySelectorAll('.button')
 

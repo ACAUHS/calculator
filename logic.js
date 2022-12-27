@@ -69,11 +69,10 @@ function operate(a, operator, b) {
 function setDisplay(e) {
     //gets the display element
     const display = document.getElementById('calculator').children[0];
-    console.log(display);
     //const makes new text node
     const newDisplay = document.createTextNode(e.srcElement.value);
     display === null || display === void 0 ? void 0 : display.replaceChild(newDisplay, display.childNodes[0]);
 }
-//dom thing that runs through all the buttons
+//dom thing that runs through all the buttons and displays it on the display
 const numberButton = document.querySelectorAll('.button');
 numberButton.forEach(button => button.addEventListener('click', setDisplay));
