@@ -74,7 +74,6 @@ function operate(a:number, operator: any, b:number) {
  */
 function setDisplay(e: any) {
 
-    const value = document.querySelector(`button[]`)
 
     //gets the display element
     const display = document.getElementById('calculator').children[0]

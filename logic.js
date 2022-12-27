@@ -67,7 +67,6 @@ function operate(a, operator, b) {
  * @param e whichever button is pressed
  */
 function setDisplay(e) {
-    const value = document.querySelector(`button[]`);
     //gets the display element
     const display = document.getElementById('calculator').children[0];
     console.log(display);
