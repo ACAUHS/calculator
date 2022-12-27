@@ -86,9 +86,15 @@ function operate(a:string, operator:string, b:string) {
 }
 
 //DOM FUNCTIONS BELOW
-const valueStorage1:number[] = []
+
+//global 
+let valueStorage1:string[] = []
+let operatorStorage:string[] = []
+let valueStorage2:string[] = []
+
+
+
 //function that replaces the button clicked to the display
-console.log(valueStorage1)
 /**
  * 
  * @param e whichever button is pressed
@@ -114,15 +120,70 @@ const firstNumber = (e: any) => {
     //returns the concatenated values on the display
     display!.value = joinValues
 
-    console.log(firstNumber)
+    valueStorage1 = [joinValues]
+
+    console.log(valueStorage1)
 
 }
 
 //dom thing that runs through all the number buttons and displays it on the display
 
-const numberButton = document.querySelectorAll('.number')
+const numberButtons = document.querySelectorAll('.number')
 
-numberButton.forEach(button => button.addEventListener('click', firstNumber))
+numberButtons.forEach(button => button.addEventListener('click', firstNumber))
 
 //when you click on a button it should accept a string of values until an operator is pressed
 // store it in an array? and evaluate the array using reduce?
+
+//function for operators
+/**
+ * 
+ * @param e Whichever button was clicked
+ */
+const getOperators = (e: any) => {
+
+    const inputValue = e.target.value
+
+    const addOperator = operatorStorage.push(inputValue)
+
+    console.log(operatorStorage)
+}
+
+//event listeners for operators
+const operatorButtons = document.querySelectorAll('.operator');
+
+operatorButtons.forEach(button => button.addEventListener('click', getOperators))
+
+
+const secondNumber = (e: any) => {
+    //gets the display element
+    const display = document.getElementById('display')
+
+    //get the value of the button clicked
+    const inputValue = e.target.value
+  
+    //pushes the value into an array
+    const addValue = valueStorage2.push(inputValue)
+  
+    //concatenates the values
+    const joinValues = valueStorage2.join('')
+  
+    //returns the concatenated values on the display
+    display!.value = joinValues
+  
+    valueStorage2 = [joinValues]
+}
+
+
+// //change addeventListener for numbers
+// function addFirstNumber() {
+//     numberButtons.forEach(button => button.removeEventListener('click', firstNumber))
+// }
+
+
+// //if operator is clicked return the first value into a new array and remove the get first number function
+// operatorStorage.length = 1
+
+// if (operatorStorage >) {
+//     addFirstNumber()
+// }
