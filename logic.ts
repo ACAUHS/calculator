@@ -51,7 +51,7 @@ function divide (a:number, b:number) {
  * @param b Second number
  * @returns Takes the operator being used, and calls the appropriate function. 
  */
-function operate(a:number, operator: any, b:number) {
+function operate(a:string[] , operator:string[], b:string[]) {
 
     if (operator == "+") {
         return addition(a, b)
@@ -65,30 +65,45 @@ function operate(a:number, operator: any, b:number) {
 }
 
 //DOM FUNCTIONS BELOW
-
+const valueStorage1:number[] = []
 //function that replaces the button clicked to the display
-
+console.log(valueStorage1)
 /**
  * 
  * @param e whichever button is pressed
  */
-function setDisplay(e: any) {
+const firstNumber = (e: any) => {
 
-
+    
     //gets the display element
-    const display = document.getElementById('calculator')!.children[0]
+    const display = document.getElementById('display')
 
-    //const makes new text node
-    const newDisplay = document.createTextNode(e.target.value);
+    //get the value of the button clicked
+    const inputValue = e.target.value
 
-    display?.replaceChild(newDisplay, display.childNodes[0])
+    //pushes the value into an array
+    const addValue = valueStorage1.push(inputValue)
+
+    //concatenates the values
+    const joinValues = valueStorage1.join('')
+
+    const firstNumber = joinValues
+
+    
+    //returns the concatenated values on the display
+    display!.value = joinValues
+
+    console.log('hello')
+    return firstNumber
+
 }
+
 
 //dom thing that runs through all the buttons and displays it on the display
 
 const numberButton = document.querySelectorAll('.button')
 
-numberButton.forEach(button => button.addEventListener('click', setDisplay))
+numberButton.forEach(button => button.addEventListener('click', firstNumber))
 
 //when you click on a button it should accept a string of values until an operator is pressed
 // store it in an array? and evaluate the array using reduce?

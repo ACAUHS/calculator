@@ -61,20 +61,30 @@ function operate(a, operator, b) {
     }
 }
 //DOM FUNCTIONS BELOW
+const valueStorage1 = [];
 //function that replaces the button clicked to the display
+console.log(valueStorage1);
 /**
  *
  * @param e whichever button is pressed
  */
-function setDisplay(e) {
+const firstNumber = (e) => {
     //gets the display element
-    const display = document.getElementById('calculator').children[0];
-    //const makes new text node
-    const newDisplay = document.createTextNode(e.target.value);
-    display === null || display === void 0 ? void 0 : display.replaceChild(newDisplay, display.childNodes[0]);
-}
+    const display = document.getElementById('display');
+    //get the value of the button clicked
+    const inputValue = e.target.value;
+    //pushes the value into an array
+    const addValue = valueStorage1.push(inputValue);
+    //concatenates the values
+    const joinValues = valueStorage1.join('');
+    const firstNumber = joinValues;
+    //returns the concatenated values on the display
+    display.value = joinValues;
+    console.log('hello');
+    return firstNumber;
+};
 //dom thing that runs through all the buttons and displays it on the display
 const numberButton = document.querySelectorAll('.button');
-numberButton.forEach(button => button.addEventListener('click', setDisplay));
+numberButton.forEach(button => button.addEventListener('click', firstNumber));
 //when you click on a button it should accept a string of values until an operator is pressed
 // store it in an array? and evaluate the array using reduce?
