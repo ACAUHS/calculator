@@ -79,7 +79,7 @@ function setDisplay(e: any) {
     const display = document.getElementById('calculator')!.children[0]
 
     //const makes new text node
-    const newDisplay = document.createTextNode(e.srcElement.value);
+    const newDisplay = document.createTextNode(e.target.value);
 
     display?.replaceChild(newDisplay, display.childNodes[0])
 }
@@ -89,3 +89,6 @@ function setDisplay(e: any) {
 const numberButton = document.querySelectorAll('.button')
 
 numberButton.forEach(button => button.addEventListener('click', setDisplay))
+
+//when you click on a button it should accept a string of values until an operator is pressed
+// store it in an array? and evaluate the array using reduce?
