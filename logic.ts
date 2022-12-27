@@ -4,10 +4,16 @@
  * @param b second number
  * @returns Adds the two numbers together and returns the sum
  */
-function addition(a:number, b:number) {
-    const sum = a + b
+function addition(a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const sum = aValue + bValue
     return sum
 }
+
 
 /**
  * 
@@ -15,8 +21,13 @@ function addition(a:number, b:number) {
  * @param b second number
  * @returns Subtracts the first number from the second and returns the difference
  */
-function subtract(a:number, b:number) {
-    const difference = a - b
+function subtract(a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const difference = aValue - bValue
     return difference
 }
 
@@ -27,8 +38,13 @@ function subtract(a:number, b:number) {
  * @param b second number
  * @returns Multiplies the two numbers together and returns the product of the two
  */
-function multiply (a:number, b:number) {
-    const product = a * b
+function multiply (a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const product = aValue * bValue
     return product
 }
 
@@ -38,8 +54,13 @@ function multiply (a:number, b:number) {
  * @param b second number
  * @returns Divides the first number by the second number and returns the quotient
  */
-function divide (a:number, b:number) {
-    const quotient = a / b
+function divide (a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const quotient = aValue / bValue
     return quotient
 }
 
@@ -51,7 +72,7 @@ function divide (a:number, b:number) {
  * @param b Second number
  * @returns Takes the operator being used, and calls the appropriate function. 
  */
-function operate(a:string[] , operator:string[], b:string[]) {
+function operate(a:string, operator:string, b:string) {
 
     if (operator == "+") {
         return addition(a, b)
