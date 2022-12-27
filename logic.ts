@@ -114,15 +114,13 @@ const firstNumber = (e: any) => {
     //returns the concatenated values on the display
     display!.value = joinValues
 
-    console.log('hello')
-    return firstNumber
+    console.log(firstNumber)
 
 }
 
+//dom thing that runs through all the number buttons and displays it on the display
 
-//dom thing that runs through all the buttons and displays it on the display
-
-const numberButton = document.querySelectorAll('.button')
+const numberButton = document.querySelectorAll('.number')
 
 numberButton.forEach(button => button.addEventListener('click', firstNumber))
 
