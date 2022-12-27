@@ -1,5 +1,4 @@
 "use strict";
-//calculator logic code
 /**
  *
  * @param a first number
@@ -71,10 +70,10 @@ function setDisplay(e) {
     const value = document.querySelector(`button[]`);
     //gets the display element
     const display = document.getElementById('calculator').children[0];
+    console.log(display);
     //const makes new text node
-    const newDisplay = document.createTextNode('hello');
+    const newDisplay = document.createTextNode(e.srcElement.value);
     display === null || display === void 0 ? void 0 : display.replaceChild(newDisplay, display.childNodes[0]);
-    console.log('1');
 }
 //dom thing that runs through all the buttons
 const numberButton = document.querySelectorAll('.button');
