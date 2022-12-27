@@ -1,5 +1,7 @@
 //calculator logic code
 
+let text: string = "";
+
 /**
  * 
  * @param a first number
@@ -75,13 +77,22 @@ function setDisplay(e: any) {
     //gets the display element
     const display = document.getElementById('calculator').children[0]
 
+    console.log(display);
+
     //const makes new text node
-    const newDisplay = document.createTextNode('hello')
+    const newDisplay = document.createTextNode(e.srcElement.value);
 
     display?.replaceChild(newDisplay, display.childNodes[0])
-    console.log(display)
+    console.log(newDisplay)
+}
+
+function cS(i: string) {
+    text += i;
+    setDisplay(text);
 }
 
 //dom thing that runs through all the buttons
 
-const numberButton = document.querySelectorAll('')
+const numberButton = document.querySelectorAll('button')
+
+numberButton.forEach(button => button.addEventListener("click", setDisplay))
