@@ -4,10 +4,16 @@
  * @param b second number
  * @returns Adds the two numbers together and returns the sum
  */
-function addition(a:number, b:number) {
-    const sum = a + b
+function addition(a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const sum = aValue + bValue
     return sum
 }
+
 
 /**
  * 
@@ -15,8 +21,13 @@ function addition(a:number, b:number) {
  * @param b second number
  * @returns Subtracts the first number from the second and returns the difference
  */
-function subtract(a:number, b:number) {
-    const difference = a - b
+function subtract(a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const difference = aValue - bValue
     return difference
 }
 
@@ -27,8 +38,13 @@ function subtract(a:number, b:number) {
  * @param b second number
  * @returns Multiplies the two numbers together and returns the product of the two
  */
-function multiply (a:number, b:number) {
-    const product = a * b
+function multiply (a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const product = aValue * bValue
     return product
 }
 
@@ -38,8 +54,13 @@ function multiply (a:number, b:number) {
  * @param b second number
  * @returns Divides the first number by the second number and returns the quotient
  */
-function divide (a:number, b:number) {
-    const quotient = a / b
+function divide (a:string, b:string) {
+
+    //turn string into value
+    const aValue = parseInt(a)
+    const bValue = parseInt(b)
+
+    const quotient = aValue / bValue
     return quotient
 }
 
@@ -51,7 +72,7 @@ function divide (a:number, b:number) {
  * @param b Second number
  * @returns Takes the operator being used, and calls the appropriate function. 
  */
-function operate(a:number, operator: any, b:number) {
+function operate(a:string, operator:string, b:string) {
 
     if (operator == "+") {
         return addition(a, b)
@@ -66,29 +87,103 @@ function operate(a:number, operator: any, b:number) {
 
 //DOM FUNCTIONS BELOW
 
-//function that replaces the button clicked to the display
+//global 
+let valueStorage1:string[] = []
+let operatorStorage:string[] = []
+let valueStorage2:string[] = []
 
+
+
+//function that replaces the button clicked to the display
 /**
  * 
  * @param e whichever button is pressed
  */
-function setDisplay(e: any) {
+const firstNumber = (e: any) => {
 
-
+    
     //gets the display element
-    const display = document.getElementById('calculator')!.children[0]
+    const display = document.getElementById('display')
 
-    //const makes new text node
-    const newDisplay = document.createTextNode(e.target.value);
+    //get the value of the button clicked
+    const inputValue = e.target.value
 
-    display?.replaceChild(newDisplay, display.childNodes[0])
+    //pushes the value into an array
+    const addValue = valueStorage1.push(inputValue)
+
+    //concatenates the values
+    const joinValues = valueStorage1.join('')
+
+    const firstNumber = joinValues
+
+    
+    //returns the concatenated values on the display
+    display!.value = joinValues
+
+    valueStorage1 = [joinValues]
+
+    console.log(valueStorage1)
+
 }
 
-//dom thing that runs through all the buttons and displays it on the display
+//dom thing that runs through all the number buttons and displays it on the display
 
-const numberButton = document.querySelectorAll('.button')
+const numberButtons = document.querySelectorAll('.number')
 
-numberButton.forEach(button => button.addEventListener('click', setDisplay))
+numberButtons.forEach(button => button.addEventListener('click', firstNumber))
 
 //when you click on a button it should accept a string of values until an operator is pressed
 // store it in an array? and evaluate the array using reduce?
+
+//function for operators
+/**
+ * 
+ * @param e Whichever button was clicked
+ */
+const getOperators = (e: any) => {
+
+    const inputValue = e.target.value
+
+    const addOperator = operatorStorage.push(inputValue)
+
+    console.log(operatorStorage)
+}
+
+//event listeners for operators
+const operatorButtons = document.querySelectorAll('.operator');
+
+operatorButtons.forEach(button => button.addEventListener('click', getOperators))
+
+
+const secondNumber = (e: any) => {
+    //gets the display element
+    const display = document.getElementById('display')
+
+    //get the value of the button clicked
+    const inputValue = e.target.value
+  
+    //pushes the value into an array
+    const addValue = valueStorage2.push(inputValue)
+  
+    //concatenates the values
+    const joinValues = valueStorage2.join('')
+  
+    //returns the concatenated values on the display
+    display!.value = joinValues
+  
+    valueStorage2 = [joinValues]
+}
+
+
+// //change addeventListener for numbers
+// function addFirstNumber() {
+//     numberButtons.forEach(button => button.removeEventListener('click', firstNumber))
+// }
+
+
+// //if operator is clicked return the first value into a new array and remove the get first number function
+// operatorStorage.length = 1
+
+// if (operatorStorage >) {
+//     addFirstNumber()
+// }
