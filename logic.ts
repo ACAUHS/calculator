@@ -92,6 +92,8 @@ let valueStorage1:string[] = []
 let operatorStorage:string[] = []
 let valueStorage2:string[] = []
 
+let totalCalculation:string[] = []
+
 
 
 //function that replaces the button clicked to the display
@@ -113,10 +115,6 @@ const firstNumber = (e: any) => {
 
     //concatenates the values
     const joinValues = valueStorage1.join('')
-
-    const firstNumber = joinValues
-
-    
     //returns the concatenated values on the display
     display!.value = joinValues
 
@@ -146,7 +144,6 @@ const getOperators = (e: any) => {
 
     const addOperator = operatorStorage.push(inputValue)
 
-    console.log(operatorStorage)
 }
 
 //event listeners for operators
@@ -174,16 +171,3 @@ const secondNumber = (e: any) => {
     valueStorage2 = [joinValues]
 }
 
-
-// //change addeventListener for numbers
-// function addFirstNumber() {
-//     numberButtons.forEach(button => button.removeEventListener('click', firstNumber))
-// }
-
-
-// //if operator is clicked return the first value into a new array and remove the get first number function
-// operatorStorage.length = 1
-
-// if (operatorStorage >) {
-//     addFirstNumber()
-// }

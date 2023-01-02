@@ -77,6 +77,7 @@ function operate(a, operator, b) {
 let valueStorage1 = [];
 let operatorStorage = [];
 let valueStorage2 = [];
+let totalCalculation = [];
 //function that replaces the button clicked to the display
 /**
  *
@@ -91,7 +92,6 @@ const firstNumber = (e) => {
     const addValue = valueStorage1.push(inputValue);
     //concatenates the values
     const joinValues = valueStorage1.join('');
-    const firstNumber = joinValues;
     //returns the concatenated values on the display
     display.value = joinValues;
     valueStorage1 = [joinValues];
@@ -110,7 +110,6 @@ numberButtons.forEach(button => button.addEventListener('click', firstNumber));
 const getOperators = (e) => {
     const inputValue = e.target.value;
     const addOperator = operatorStorage.push(inputValue);
-    console.log(operatorStorage);
 };
 //event listeners for operators
 const operatorButtons = document.querySelectorAll('.operator');
@@ -128,12 +127,3 @@ const secondNumber = (e) => {
     display.value = joinValues;
     valueStorage2 = [joinValues];
 };
-// //change addeventListener for numbers
-// function addFirstNumber() {
-//     numberButtons.forEach(button => button.removeEventListener('click', firstNumber))
-// }
-// //if operator is clicked return the first value into a new array and remove the get first number function
-// operatorStorage.length = 1
-// if (operatorStorage >) {
-//     addFirstNumber()
-// }
