@@ -96,6 +96,7 @@ const firstNumber = (e) => {
     display.value = joinValues;
     valueStorage1 = [joinValues];
     console.log(valueStorage1);
+    localStorage.setItem('first', joinValues);
 };
 //dom thing that runs through all the number buttons and displays it on the display
 const numberButtons = document.querySelectorAll('.number');
@@ -110,20 +111,8 @@ numberButtons.forEach(button => button.addEventListener('click', firstNumber));
 const getOperators = (e) => {
     const inputValue = e.target.value;
     const addOperator = operatorStorage.push(inputValue);
+    localStorage.setItem('operator', inputValue);
 };
 //event listeners for operators
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => button.addEventListener('click', getOperators));
-const secondNumber = (e) => {
-    //gets the display element
-    const display = document.getElementById('display');
-    //get the value of the button clicked
-    const inputValue = e.target.value;
-    //pushes the value into an array
-    const addValue = valueStorage2.push(inputValue);
-    //concatenates the values
-    const joinValues = valueStorage2.join('');
-    //returns the concatenated values on the display
-    display.value = joinValues;
-    valueStorage2 = [joinValues];
-};
