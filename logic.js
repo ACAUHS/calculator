@@ -101,12 +101,14 @@ const getNumber = (e) => {
         value2 += inputValue;
         display.value = value2;
     }
+    /**@TODO: if . is clicked */
+    // if (value1[value1.length - 1] === '.') {
+    //     display!.
+    // }
 };
 //dom thing that runs through all the number buttons and displays it on the display
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => button.addEventListener('click', getNumber));
-//when you click on a button it should accept a string of values until an operator is pressed
-// store it in an array? and evaluate the array using reduce?
 //function for operators
 /**
  *
@@ -147,3 +149,11 @@ equalButton === null || equalButton === void 0 ? void 0 : equalButton.addEventLi
     value2 = "";
     operator = "";
 });
+const clearButton = document.querySelector('.clear');
+const defaultValues = () => {
+    value1 = '';
+    operator = '';
+    value2 = '';
+    display.value = '00000000000';
+};
+clearButton === null || clearButton === void 0 ? void 0 : clearButton.addEventListener('click', defaultValues);
