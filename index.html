@@ -10,30 +10,30 @@
 <body>
     <div class="flex justify-center m-5">
         <div id="calculator" class="border-2 border-solid bg-slate-600 rounded-xl">
-            <div class="p-4 bg-slate-500 border-b-2 rounded-t-lg">
-                <input id="display" value="000000000" type="number" class="border-2 p-2 text-right"></input>
-                <button value="0000000000000" class="button clear bg-rose-500">AC</button>
+            <div class="p-4 bg-slate-500  rounded-t-lg flex-nowrap">
+                <input id="display" value="000000000" type="number" class="border-2 p-2 text-right bg-green-100"></input>
+                <button value="0000000000000" class="p-3 text-white w-16 clear bg-rose-500 rounded-md active:bg-rose-400">AC</button>
             </div>
-            <table class="flex pl-7">
-                <tr class="">
+            <table class="flex pt-4 pb-4 justify-center">
+                <tr class="flex p-1  gap-1 ">
                     <td><button value="7" class="button number">7</button></td>
                     <td><button value="8" class="button number">8</button></td>
                     <td><button value="9" class="button number">9</button></td>
                     <td><button value="/" class="button operator">/</button></td>
                 </tr> 
-                <tr>
+                <tr class="flex p-1 gap-1">
                     <td><button value="4" class="button number">4</button></td>
                     <td><button value="5" class="button number">5</button></td>
                     <td><button value="6" class="button number">6</button></td>
                     <td><button value="*" class="button operator">*</button></td>
                 </tr>
-                <tr>
+                <tr class="flex p-1 gap-1">
                     <td><button value="1" class="button number">1</button></td>
                     <td><button value="2" class="button number">2</button></td>
                     <td><button value="3" class="button number">3</button></td>
                     <td><button value="-" class="button operator">-</button></td>
                 </tr>
-                <tr>
+                <tr class="flex p-1 gap-1">
                     <td><button value="0" class="button number">0</button></td>
                     <td><button value="." class="button number">.</button></td>
                     <td><button value="=" class="button calculate">=</button></td>
