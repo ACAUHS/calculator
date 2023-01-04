@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* npx tailwindcss -i ./input.css -o ./style.css --watch */
+
 @layer components {
     .button {
-        @apply border-2 p-3
+        @apply border-2 p-4 rounded-md bg-slate-500
     }
 }
