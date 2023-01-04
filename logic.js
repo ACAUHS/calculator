@@ -7,8 +7,8 @@
  */
 function addition(a, b) {
     //turn string into value
-    const aValue = parseInt(a);
-    const bValue = parseInt(b);
+    const aValue = parseFloat(a);
+    const bValue = parseFloat(b);
     const sum = aValue + bValue;
     return sum;
 }
@@ -20,8 +20,8 @@ function addition(a, b) {
  */
 function subtract(a, b) {
     //turn string into value
-    const aValue = parseInt(a);
-    const bValue = parseInt(b);
+    const aValue = parseFloat(a);
+    const bValue = parseFloat(b);
     const difference = aValue - bValue;
     return difference;
 }
@@ -33,8 +33,8 @@ function subtract(a, b) {
  */
 function multiply(a, b) {
     //turn string into value
-    const aValue = parseInt(a);
-    const bValue = parseInt(b);
+    const aValue = parseFloat(a);
+    const bValue = parseFloat(b);
     const product = aValue * bValue;
     return product;
 }
@@ -46,8 +46,8 @@ function multiply(a, b) {
  */
 function divide(a, b) {
     //turn string into value
-    const aValue = parseInt(a);
-    const bValue = parseInt(b);
+    const aValue = parseFloat(a);
+    const bValue = parseFloat(b);
     const quotient = aValue / bValue;
     return quotient;
 }
@@ -78,6 +78,7 @@ let value1 = "";
 let value2 = "";
 let operator = "";
 const display = document.getElementById('display');
+const errorMessage = "ERROR";
 var State;
 (function (State) {
     State[State["waitingForValue1"] = 0] = "waitingForValue1";
@@ -116,9 +117,13 @@ const getOperators = (e) => {
     if (state === State.waitingForValue1 && value1.length >= 1) {
         state = State.waitingForValue2;
     }
+    if (state === State.waitingForValue2 && value2.length >= 1) {
+        const displayValue = operate(value1, operator, value2);
+        value1 = displayValue.toString();
+        display.value = value1;
+        value2 = '';
+    }
     operator = inputValue;
-    // if (state === State.waitingForValue2 && value2.length >= 1) {
-    // }
     console.log(operator);
 };
 //event listeners for operators
@@ -130,6 +135,14 @@ equalButton === null || equalButton === void 0 ? void 0 : equalButton.addEventLi
     const displayValue = operate(value1, operator, value2);
     value1 = displayValue.toString();
     display.value = value1;
+    if (value2 == '0' && operator == '/') {
+        alert(errorMessage);
+        state = State.waitingForValue1;
+        value1 = '';
+        value2 = "";
+        operator = "";
+        display.value = '00000000000';
+    }
     state = State.waitingForValue1;
     value2 = "";
     operator = "";

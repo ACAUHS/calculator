@@ -7,8 +7,8 @@
 function addition(a:string, b:string) {
 
     //turn string into value
-    const aValue = parseInt(a)
-    const bValue = parseInt(b)
+    const aValue = parseFloat(a)
+    const bValue = parseFloat(b)
 
     const sum = aValue + bValue
     return sum
@@ -24,8 +24,8 @@ function addition(a:string, b:string) {
 function subtract(a:string, b:string) {
 
     //turn string into value
-    const aValue = parseInt(a)
-    const bValue = parseInt(b)
+    const aValue = parseFloat(a)
+    const bValue = parseFloat(b)
 
     const difference = aValue - bValue
     return difference
@@ -41,8 +41,8 @@ function subtract(a:string, b:string) {
 function multiply (a:string, b:string) {
 
     //turn string into value
-    const aValue = parseInt(a)
-    const bValue = parseInt(b)
+    const aValue = parseFloat(a)
+    const bValue = parseFloat(b)
 
     const product = aValue * bValue
     return product
@@ -57,8 +57,8 @@ function multiply (a:string, b:string) {
 function divide (a:string, b:string) {
 
     //turn string into value
-    const aValue = parseInt(a)
-    const bValue = parseInt(b)
+    const aValue = parseFloat(a)
+    const bValue = parseFloat(b)
 
     const quotient = aValue / bValue
     return quotient
@@ -94,6 +94,8 @@ let operator:string = "";
 
 const display = document.getElementById('display')
 
+const errorMessage = "ERROR"
+
 enum State {
     waitingForValue1,
     waitingForValue2,
@@ -117,7 +119,7 @@ const getNumber = (e: any) => {
         display!.value = value1
     } 
 
-    if  (state === State.waitingForValue2) {
+    if (state === State.waitingForValue2) {
         value2 += inputValue
         display!.value = value2
     }
@@ -144,11 +146,15 @@ const getOperators = (e: any) => {
         state = State.waitingForValue2
     }
 
-    operator = inputValue
+    if (state === State.waitingForValue2 && value2.length >= 1) {
+        const displayValue = operate(value1, operator, value2)
+        value1 = displayValue.toString()
 
-    // if (state === State.waitingForValue2 && value2.length >= 1) {
-        
-    // }
+        display!.value = value1
+        value2 = '';
+    }
+
+    operator = inputValue
 
     console.log(operator)
 }
@@ -166,6 +172,15 @@ equalButton?.addEventListener('click', () => {
     value1 = displayValue.toString()
 
     display!.value = value1
+    
+    if (value2 == '0' && operator == '/') {
+        alert(errorMessage)
+        state = State.waitingForValue1
+        value1 = '';
+        value2 = "";
+        operator = "";
+        display!.value = '00000000000'
+    }
 
     state = State.waitingForValue1
     value2 = "";
