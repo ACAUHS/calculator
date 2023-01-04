@@ -196,7 +196,7 @@ const defaultValues = () => {
     operator = '';
     value2 = '';
 
-    display!.value = '000000000009'
+    display!.value = '000000000000'
 }
 
 clearButton?.addEventListener('click', defaultValues)

@@ -8,36 +8,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="calculator">
-        <input id="display" value="000000000" type="number"></input>
-        <button value="0000000000000" class="button clear">CLEAR</button>
-        <table class="buttons">
-            <tr>
-                <td><button value="7" class="button number">7</button></td>
-                <td><button value="8" class="button number">8</button></td>
-                <td><button value="9" class="button number">9</button></td>
-                <td><button value="/" class="button operator">/</button></td>
-            </tr> 
-            <tr>
-                <td><button value="4" class="button number">4</button></td>
-                <td><button value="5" class="button number">5</button></td>
-                <td><button value="6" class="button number">6</button></td>
-                <td><button value="*" class="button operator">*</button></td>
-            </tr>
-            <tr>
-                <td><button value="1" class="button number">1</button></td>
-                <td><button value="2" class="button number">2</button></td>
-                <td><button value="3" class="button number">3</button></td>
-                <td><button value="-" class="button operator">-</button></td>
-            </tr>
-            <tr>
-                <td><button value="0" class="button number">0</button></td>
-                <td><button value="." class="button number">.</button></td>
-                <td><button value="=" class="button calculate">=</button></td>
-                <td><button value="+" class="button operator">+</button></td>
-            </tr>             
-        </table>   
+    <div class="flex justify-center">
+        <div id="calculator" class="border-2 border-solid">
+            <input id="display" value="000000000" type="number" class="border-2"></input>
+            <button value="0000000000000" class="button clear">CLEAR</button>
+            <table class="buttons">
+                <tr>
+                    <td><button value="7" class="button number">7</button></td>
+                    <td><button value="8" class="button number">8</button></td>
+                    <td><button value="9" class="button number">9</button></td>
+                    <td><button value="/" class="button operator">/</button></td>
+                </tr> 
+                <tr>
+                    <td><button value="4" class="button number">4</button></td>
+                    <td><button value="5" class="button number">5</button></td>
+                    <td><button value="6" class="button number">6</button></td>
+                    <td><button value="*" class="button operator">*</button></td>
+                </tr>
+                <tr>
+                    <td><button value="1" class="button number">1</button></td>
+                    <td><button value="2" class="button number">2</button></td>
+                    <td><button value="3" class="button number">3</button></td>
+                    <td><button value="-" class="button operator">-</button></td>
+                </tr>
+                <tr>
+                    <td><button value="0" class="button number">0</button></td>
+                    <td><button value="." class="button number">.</button></td>
+                    <td><button value="=" class="button calculate">=</button></td>
+                    <td><button value="+" class="button operator">+</button></td>
+                </tr>             
+            </table>   
+        </div>
     </div>
-    <script src="logic.js"></script>
-</body>
+        <script src="logic.js"></script>
+    </body>
 </html>

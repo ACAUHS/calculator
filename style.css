@@ -513,6 +513,35 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.button {
+  border-width: 2px;
+  padding: 0.75rem;
+}
+
+.flex {
+  display: flex;
+}
+
 .table {
   display: table;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
