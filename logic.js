@@ -130,4 +130,7 @@ equalButton === null || equalButton === void 0 ? void 0 : equalButton.addEventLi
     const displayValue = operate(value1, operator, value2);
     value1 = displayValue.toString();
     display.value = value1;
+    state = State.waitingForValue1;
+    value2 = "";
+    operator = "";
 });

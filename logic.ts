@@ -121,7 +121,6 @@ const getNumber = (e: any) => {
         value2 += inputValue
         display!.value = value2
     }
-
 }
 //dom thing that runs through all the number buttons and displays it on the display
 
@@ -167,4 +166,8 @@ equalButton?.addEventListener('click', () => {
     value1 = displayValue.toString()
 
     display!.value = value1
-})
+
+    state = State.waitingForValue1
+    value2 = "";
+    operator = "";
+}) 
