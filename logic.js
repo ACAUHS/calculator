@@ -74,33 +74,36 @@ function operate(a, operator, b) {
 }
 //DOM FUNCTIONS BELOW
 //global 
-let valueStorage1 = [];
-let operatorStorage = [];
-let valueStorage2 = [];
-let totalCalculation = [];
+let value1 = "";
+let value2 = "";
+let operator = "";
+const display = document.getElementById('display');
+var State;
+(function (State) {
+    State[State["waitingForValue1"] = 0] = "waitingForValue1";
+    State[State["waitingForValue2"] = 1] = "waitingForValue2";
+})(State || (State = {}));
+let state = State.waitingForValue1;
 //function that replaces the button clicked to the display
 /**
  *
  * @param e whichever button is pressed
  */
-const firstNumber = (e) => {
-    //gets the display element
-    const display = document.getElementById('display');
+const getNumber = (e) => {
     //get the value of the button clicked
     const inputValue = e.target.value;
-    //pushes the value into an array
-    const addValue = valueStorage1.push(inputValue);
-    //concatenates the values
-    const joinValues = valueStorage1.join('');
-    //returns the concatenated values on the display
-    display.value = joinValues;
-    valueStorage1 = [joinValues];
-    console.log(valueStorage1);
-    localStorage.setItem('first', joinValues);
+    if (state === State.waitingForValue1) {
+        value1 += inputValue;
+        display.value = value1;
+    }
+    if (state === State.waitingForValue2) {
+        value2 += inputValue;
+        display.value = value2;
+    }
 };
 //dom thing that runs through all the number buttons and displays it on the display
 const numberButtons = document.querySelectorAll('.number');
-numberButtons.forEach(button => button.addEventListener('click', firstNumber));
+numberButtons.forEach(button => button.addEventListener('click', getNumber));
 //when you click on a button it should accept a string of values until an operator is pressed
 // store it in an array? and evaluate the array using reduce?
 //function for operators
@@ -110,9 +113,21 @@ numberButtons.forEach(button => button.addEventListener('click', firstNumber));
  */
 const getOperators = (e) => {
     const inputValue = e.target.value;
-    const addOperator = operatorStorage.push(inputValue);
-    localStorage.setItem('operator', inputValue);
+    if (state === State.waitingForValue1 && value1.length >= 1) {
+        state = State.waitingForValue2;
+    }
+    operator = inputValue;
+    // if (state === State.waitingForValue2 && value2.length >= 1) {
+    // }
+    console.log(operator);
 };
 //event listeners for operators
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => button.addEventListener('click', getOperators));
+//calculate shit
+const equalButton = document.querySelector('.calculate');
+equalButton === null || equalButton === void 0 ? void 0 : equalButton.addEventListener('click', () => {
+    const displayValue = operate(value1, operator, value2);
+    value1 = displayValue.toString();
+    display.value = value1;
+});
